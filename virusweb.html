@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virus Hub | Final Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;800;900&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #dcfce7; 
+            --card: rgba(255, 255, 255, 0.95);
+            --text-main: #166534;
+            --accent: #22c55e;
+            --btn-txt: #ffffff;
+            --shadow: rgba(22, 101, 52, 0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text-main: #ffffff;
+            --accent: #39FF14;
+            --btn-txt: #000000;
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background 0.4s ease, color 0.4s ease;
+            padding: 60px 0;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--card);
+            border: 2px solid var(--accent);
+            color: var(--text-main);
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px var(--shadow);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .theme-toggle:hover { transform: scale(1.1); }
+
+        .container { width: 90%; max-width: 440px; text-align: center; position: relative; }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            margin: 0;
+            background: linear-gradient(90deg, #166534, var(--accent), #86efac, var(--accent), #166534);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: green-rainbow 3s linear infinite;
+        }
+
+        @keyframes green-rainbow { to { background-position: 200% center; } }
+
+        .status-badge {
+            display: inline-block;
+            background: var(--card);
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .glass-card {
+            background: var(--card);
+            border-radius: 30px;
+            padding: 25px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dl-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .active .dl-section { max-height: 150px; margin-top: 25px; }
+
+        .btn {
+            padding: 16px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .btn-green { background: var(--accent); color: var(--btn-txt); box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3); }
+        .btn-outline { border: 2px solid var(--accent); color: var(--accent); }
+
+        .social-container { margin-top: 45px; display: flex; flex-direction: column; gap: 15px; }
+        
+        .social-btn {
+            padding: 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .social-btn::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 4s infinite;
+        }
+        @keyframes shine { 0% { left: -100%; } 20% { left: 100%; } 100% { left: 100%; } }
+
+        .discord { background: #5865F2; }
+        .youtube { background: #FF0000; }
+        .tiktok { background: #000000; }
+
+        .social-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+
+        .footer-tag { margin-top: 40px; font-size: 13px; font-weight: 600; opacity: 0.7; }
+        .footer-tag span { color: var(--accent); font-weight: 900; }
+
+    </style>
+</head>
+<body data-theme="light">
+
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" title="تبديل الوضع">🌙</button>
+
+    <div class="container">
+        <div class="header">
+            <h1>VIRUS HUB</h1>
+            <div class="status-badge">خذ هاكاتك من هنا وريح بالك 😉</div>
+        </div>
+
+        <div class="glass-card" onclick="this.classList.toggle('active')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="width: 55px; height: 55px; background: var(--accent); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--btn-txt); font-weight: 900;">Δ</div>
+                    <div style="text-align: right;">
+                        <b style="display: block; font-size: 1.3rem;">تنزيل هاك دلتا</b>
+                        <p style="font-size: 12px; opacity: 0.6; margin: 0;">الأصدار الاخير - آمن - يحتاج مفتاح</p>
+                    </div>
+                </div>
+                <div style="opacity: 0.3;">▼</div>
+            </div>
+
+            <div class="dl-section">
+                <a href="https://www.mediafire.com/file/ev7wfm1ulhdx9od/Delta-2.716.875.apk/file" target="_blank" class="btn btn-green">أندرويد</a>
+                <a href="https://www.mediafire.com/file/1jswjukaca603hx/Delta-2.717.982.ipa/file" target="_blank" class="btn btn-outline">أيفون</a>
+            </div>
+        </div>
+
+        <div class="social-container">
+            <a href="https://discord.gg/gHYTPfQtVy" class="social-btn discord" target="_blank">سيرفر الديسكورد</a>
+            <a href="https://youtube.com/@virushub5?si=KmvSTvOJUdu3T_Lo" class="social-btn youtube" target="_blank">قناة اليوتيوب</a>
+            <a href="https://www.tiktok.com/@virushub_?_r=1&_t=ZS-95o7O7qaUNz" class="social-btn tiktok" target="_blank">حساب التيك توك</a>
+        </div>
+
+        <div class="footer-tag">Developed by <span>ali mohmed</span></div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                btn.innerHTML = '☀️';
+            } else {
+                body.setAttribute('data-theme', 'light');
+                btn.innerHTML = '🌙';
+            }
+        }
+    </script>
+</body>
+</html>
