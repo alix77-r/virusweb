@@ -126,6 +126,27 @@
             gap: 5px;
         }
 
+        /* أنميشن النص للبيسي */
+        .pc-discord-text {
+            font-size: 1.15rem;
+            font-weight: 900;
+            color: var(--accent);
+            padding: 15px 10px;
+            margin: 5px 0;
+            animation: green-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes green-glow {
+            0% {
+                text-shadow: 0 0 5px rgba(57, 255, 20, 0.4), 0 0 10px rgba(57, 255, 20, 0.2);
+                opacity: 0.85;
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(57, 255, 20, 0.9), 0 0 25px rgba(57, 255, 20, 0.6);
+                opacity: 1;
+            }
+        }
+
         .glass-card {
             background: var(--card);
             border-radius: 25px;
@@ -228,31 +249,17 @@
                     <div style="opacity: 0.3;">▼</div>
                 </div>
                 <div class="dl-section">
-                    <!-- تم تحديث رابط الأندرويد الجديد هنا -->
                     <a href="https://www.mediafire.com/file/vnk8nzp28aqmyde/Delta-2.729.840.apk/file" target="_blank" class="btn btn-green">أندرويد</a>
-                    <a href="https://www.mediafire.com/file/h2q75tfva83he9j/Delta-2.727.1199.ipa/file" target="_blank" class="btn btn-outline">أيفون</a>
+                    <a href="https://www.mediafire.com/file/0n55ue79xcc06uj/Delta-2.729.838.ipa/file" target="_blank" class="btn btn-outline">أيفون</a>
                 </div>
             </div>
         </div>
 
-        <!-- قسم البيسي -->
+        <!-- قسم البيسي المحدث -->
         <div class="mobile-section-box" style="margin-top: 40px;">
             <div class="mobile-title">💻 هاكات البيسي</div>
-
-            <div class="glass-card" onclick="this.classList.toggle('active')">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <img src="https://i.postimg.cc/Kz18KvBY/In-Shot-20260427-150619847.jpg" alt="Wave Logo" class="hack-logo">
-                        <div style="text-align: right;">
-                            <b style="display: block; font-size: 1.1rem;">تنزيل هاك wave</b>
-                            <p style="font-size: 10px; opacity: 0.6; margin: 0;">الأصدار الاخير - آمن - يحتاج مفتاح</p>
-                        </div>
-                    </div>
-                    <div style="opacity: 0.3;">▼</div>
-                </div>
-                <div class="dl-section" style="grid-template-columns: 1fr;">
-                    <a href="https://www.mediafire.com/file/4lx52in6um95vmz/Wave.zip/file" target="_blank" class="btn btn-green">تنزيل للكمبيوتر</a>
-                </div>
+            <div class="pc-discord-text">
+                هاكات البيسي موجودة بسيرفر الدسكورد
             </div>
         </div>
 
